@@ -1,15 +1,17 @@
  import React from 'react';
  import Box from './Box';
  
- const Galery = () => {
+ const Galery = ({products}) => {
 
-    const name = 'Naziv';
-    const desc = 'Opis';
+   /* const prod = {
+        title: "Naziv",
+        description: "opis"
+    }*/
      return <div className='all-products'>
-         <Box title = {name} description = {desc}/>
-         <Box title = {name} description = {desc}/>
-         <Box />
-     </div>;
+         {products.map((pr)=>{
+             return <Box product={pr} key={pr.id} />
+         })}
+     </div>
  };
  
  
