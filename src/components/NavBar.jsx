@@ -1,10 +1,13 @@
 import React from 'react'
 
 
+
 function NavBar() {
   return (
     <div className='NavBar'>
-      <a>Prodavnica</a>
+      <h1>Galerija</h1>
+      
+
     </div>
   );
 }
