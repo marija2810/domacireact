@@ -1,9 +1,10 @@
 import React from 'react'
 import { FaHeart, FaEye } from 'react-icons/fa';
+import {LikeButton} from './LikeButton';
 
+function Box({product, lajkuj, dislajkuj}) {
 
-function Box({product, klik, broj}) {
-
+  
     
    /* function klik(){
    
@@ -19,15 +20,14 @@ function Box({product, klik, broj}) {
               {product.title}
           </h3>
           <p className='card-text'>{product.description}</p>
-          <button className="btn" onClick={() =>klik(product.id)}>
-          <FaHeart />
-        </button >
-        <button className="btn" >
-            {broj}
-        </button>
-        <button className="btn">
-        <FaEye/>
-        </button>
+          <LikeButton product = {product} txtDugme='Lajkuj sliku' lajkuj={lajkovati}/>
+           if(product.amount === 0){
+            
+          } else{
+            <LikeButton product = {product} txtDugme='Dislajkuj sliku' lajkuj={dislajkovati}/>
+          }
+
+          
 
       </div>
     </div>

@@ -1,48 +1,21 @@
 import './App.css';
 import NavBar from './components/NavBar';
 import Galery from './components/Galery';
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { useState } from 'react';
 import { toHaveErrorMessage } from '@testing-library/jest-dom/dist/matchers';
 
 function App() {
 
   const [broj, setBr] = useState(0);
-  const[niz, setNiz] = usestate([]);
+  const[niz, setNiz] = useState([]);
 
   const [like, setlike] = useState(0);
   const[dislike, setdislike] = useState(0)
 const [likeactive, setlikeactive] = useState(false)
 const [dislikeactive, setdislikeactive] = useState(false)
   
-function likef(){
-if(likeactive){
-  setlikeactive(false);
-  setlike(like-1);
-} else{
-  setlikeactive(true);
-  setlike(like+1);
-  if(dislikeactive){
-    setdislikeactive(false);
-    setlike(like+1);
-    setdislike(dislike-1);
-}
-}
-}
-
-function likef(){
-  if(dislikeactive){
-    setdislikeactive(false);
-    setdislike(dislike+1);
-  } else{
-    setdislikeactive(true);
-    setdislike(dislike+1);
-    if(dislikeactive){
-      setlikeactive(false);
-      setdislike(dislike+1);
-      setlike(like-1);
-  }
-  }
-  }
+  const [brojLajkovanihSlika, SetBrLajkova] = useState(0);
 
     
   
@@ -126,12 +99,10 @@ function likef(){
     return (
     
     <div className="App">
-      <NavBar></NavBar>
-      
-      <Galery products = {products} klik = {LikedPhoto} broj = {broj}/>
-      <Galery products = {products} klik ={LikedPhoto} broj = {broj}/>
-      <Galery products = {products} klik = {LikedPhoto} broj = {broj}/>
-      
+        <Router>
+                <NavBar/>
+                
+          </Router>
    
     </div>
     

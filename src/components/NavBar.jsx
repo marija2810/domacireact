@@ -1,15 +1,30 @@
 import React from 'react'
+import Klik from './Klik';
+import {FaHeart} from 'react-icons/fa'
 
-
-
-function NavBar() {
+function Navbar({brojLajkovanihSlika}){ 
+  const style = {backgroundColor: 'rgb(255,102,102)', color: 'rgb(255,255,255)'}
+    const boja = {color: 'rgb(255,255,255)'}
   return (
-    <div className='NavBar'>
-      <h1>Galerija</h1>
-      
+    <nav className="navbar navbar-expand-xl navbar-light " style={style}>
+            <div className="container-fluid">
+                <p className="navbar-brand" style={boja}>Bioskop</p>
+                <div className="collapse navbar-collapse show" id="navbarBasic">
+                    <ul className="navbar-nav me-auto mb-2 mb-xl-0">
+                        <Klik putanja="/" tekst="Slikagram"/>
+                        <Klik putanja="/korpa" tekst="Vidi sve lajkovane slike"/>
+                        <Klik putanja="/korpa" tekst="Pošalji poruku"/>
+                        <li className='nav-link active'  style={boja}>
+                             Broj lajkovanih slika: {brojLajkovanihSlika} <FaHeart size={25} />
+                        </li>
 
-    </div>
-  );
+                    </ul>
+                  
+                </div>
+            </div>
+        </nav>
+  )
 }
 
-export default NavBar;
+export default Navbar
+
