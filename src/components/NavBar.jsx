@@ -12,8 +12,8 @@ function Navbar({brojLajkovanihSlika}){
                 <div className="collapse navbar-collapse show" id="navbarBasic">
                     <ul className="navbar-nav me-auto mb-2 mb-xl-0">
                         <Klik putanja="/" tekst="Slikagram"/>
-                        <Klik putanja="/korpa" tekst="Vidi sve lajkovane slike"/>
-                        <Klik putanja="/korpa" tekst="Pošalji poruku"/>
+                        <Klik putanja="/galerija" tekst="Vidi sve lajkovane slike"/>
+                        <Klik putanja="/forma" tekst="Pošalji poruku"/>
                         <li className='nav-link active'  style={boja}>
                              Broj lajkovanih slika: {brojLajkovanihSlika} <FaHeart size={25} />
                         </li>
