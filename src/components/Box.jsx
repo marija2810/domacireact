@@ -2,36 +2,33 @@ import React from 'react'
 import { FaHeart, FaEye } from 'react-icons/fa';
 import LikeButton from './LikeButton';
 
-function Box({product, lajkovati, dislajkovati}) {
+function Box({slika, lajkovati, dislajkovati}) {
 
-  
-    
-   /* function klik(){
-   
-        console.log("dodat br");
-    }*/
-    
+  const stil = {backgroundColor: 'rgb(255, 204, 204)', color: '#ffff'}
 
   return (
-    <div className="card" style={{ margin: 10, borderStyle:'none' }}>
-      <div className='card-body'>
-      <img className='card-img-top' src={product.imgLink} alt= 'Slika' width={150} height={150}/>
-          <h3 className='card-title'>
-              {product.title}
-          </h3>
-          <p className='card-text'>{product.description}</p>
-          <LikeButton product = {product} txtDugme='Lajkuj sliku' lajkuj={lajkovati}/>
-           if(product.amount === 0){
-            
-          } else{
-            <LikeButton product = {product} txtDugme='Dislajkuj sliku' lajkuj={dislajkovati}/>
-          }
+    
+<div className='col filmCard'>
+      <div className=" card" style={stil}>
+                <div className="card-body">
+                    <h5 className="card-title">{slika.title}</h5>
+                    <p className="card-text">Opis: {slika.description}</p>
+                    <img className='card-img-top' src={slika.imgLink} alt= 'Slika' width={150} height={150}/>
+                    <p className="card-text">Broj lajkova: {slika.amount}</p>
+                    <div className='d-flex justify-content-start' >
+                    <LikeButton txtDugme='Lajkuj sliku' slika = {slika}  lajkFunkcija={lajkovati}/>
+                    <LikeButton txtDugme='Dislajkuj sliku' slika = {slika}  lajkFunkcija={dislajkovati}/>
+                  
+                </div>
+       </div>
+          </div>
+       </div>
+      
+  );
 
-          
-
-      </div>
-    </div>
-  )
+           
+    
+  
 }
 
 export default Box;

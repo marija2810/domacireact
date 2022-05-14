@@ -1,26 +1,24 @@
 import './App.css';
+import { useState } from 'react';
 import NavBar from './components/NavBar';
 import Galery from './pages/Galery';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import { useState } from 'react';
-import { toHaveErrorMessage } from '@testing-library/jest-dom/dist/matchers';
+import {BrowserRouter , Routes, Route} from "react-router-dom";
+import SendMessage from './pages/SendMessage';
+
 
 function App() {
 
-  const [broj, setBr] = useState(0);
+  
   const[niz, setNiz] = useState([]);
 
-  const [like, setlike] = useState(0);
-  const[dislike, setdislike] = useState(0)
-const [likeactive, setlikeactive] = useState(false)
-const [dislikeactive, setdislikeactive] = useState(false)
+  
   
   const [brojLajkovanihSlika, setBrLajkova] = useState(0);
 
   const [prikaz, setPrikaz] = useState([]);
     
   
-    const [products,setProducts] =useState ([
+    const [products,setProducts] =useState([
       {
         id: 1,
       title: "Lion",
@@ -79,27 +77,26 @@ const [dislikeactive, setdislikeactive] = useState(false)
 
     function lajkovati(id)  {
 
-      
-      products.forEach((product) => {
-         if(product.id ===id ){
-          product.amount =  product.amount+1;
+      products.forEach((slika) => {
+         if(slika.id ===id ){
+          slika.amount++;
           }
-          });
+          })
           setProducts(products);
-          setPrikaz(products.filter((product) => (product.amount > 0)));
+          setPrikaz(products.filter((slika) => (slika.amount > 0)));
           setBrLajkova(brojLajkovanihSlika + 1);
           
     };
     
     function dislajkovati(id) {
 
-      products.forEach((product) => {
-        if(product.id === id ){
-          product.amount = product.amount -1;
+      products.forEach((slika) => {
+        if(slika.id === id ){
+          slika.amount--;
         }
-      });
+      })
       setProducts(products);
-      setPrikaz(products.filter((product) =>product.amount > 0));
+      setPrikaz(products.filter((slika) =>slika.amount > 0));
    
       if(brojLajkovanihSlika > 0) {
         setBrLajkova(brojLajkovanihSlika-1);
@@ -107,19 +104,22 @@ const [dislikeactive, setdislikeactive] = useState(false)
    
     }
 
-
-   
+    function posaljiPoruku(){
+      //    slanje email-a
+          alert('Poslali ste poruku');
+      }
+    
 
     return (
     
     <div className="App">
-        <Router>
+        <BrowserRouter>
           <NavBar brojLajkovanihSlika={brojLajkovanihSlika}/>     
-          
           <Routes>
-            <Route path='/' element={<Galery products={products} lajkovati ={ lajkovati} dislajkovati = {dislajkovati}/>}/>
+          <Route path='/' element={<Galery products={products} lajkovati={lajkovati} dislajkovati = {dislajkovati} />}/>
+            <Route path='/forma' element={<SendMessage posaljiPoruku={posaljiPoruku}/>}/>
           </Routes>
-   </Router>
+   </BrowserRouter>
     </div>
     
   );
