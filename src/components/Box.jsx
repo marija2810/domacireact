@@ -1,8 +1,8 @@
 import React from 'react'
 import { FaHeart, FaEye } from 'react-icons/fa';
-import {LikeButton} from './LikeButton';
+import LikeButton from './LikeButton';
 
-function Box({product, lajkuj, dislajkuj}) {
+function Box({product, lajkovati, dislajkovati}) {
 
   
     

@@ -1,6 +1,6 @@
 import './App.css';
 import NavBar from './components/NavBar';
-import Galery from './components/Galery';
+import Galery from './pages/Galery';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { useState } from 'react';
 import { toHaveErrorMessage } from '@testing-library/jest-dom/dist/matchers';
@@ -15,13 +15,12 @@ function App() {
 const [likeactive, setlikeactive] = useState(false)
 const [dislikeactive, setdislikeactive] = useState(false)
   
-  const [brojLajkovanihSlika, SetBrLajkova] = useState(0);
+  const [brojLajkovanihSlika, setBrLajkova] = useState(0);
 
+  const [prikaz, setPrikaz] = useState([]);
     
   
-  
-
-    const products = [
+    const [products,setProducts] =useState ([
       {
         id: 1,
       title: "Lion",
@@ -75,35 +74,52 @@ const [dislikeactive, setdislikeactive] = useState(false)
       
       
 
-    ];
+    ]);
 
 
-    function LikedPhoto (id)  {
+    function lajkovati(id)  {
 
-      let errors= {};
-      //const lajkovano = false;
-      products.map((product) =>{
-        if(product.id ===id ){
-         // if(!likeactive){ 
+      
+      products.forEach((product) => {
+         if(product.id ===id ){
           product.amount =  product.amount+1;
-          const a = broj+1;
-         setBr(a);
+          }
+          });
+          setProducts(products);
+          setPrikaz(products.filter((product) => (product.amount > 0)));
+          setBrLajkova(brojLajkovanihSlika + 1);
           
-          }
-         
-        
-          }
-      );
     };
+    
+    function dislajkovati(id) {
+
+      products.forEach((product) => {
+        if(product.id === id ){
+          product.amount = product.amount -1;
+        }
+      });
+      setProducts(products);
+      setPrikaz(products.filter((product) =>product.amount > 0));
+   
+      if(brojLajkovanihSlika > 0) {
+        setBrLajkova(brojLajkovanihSlika-1);
+      }
+   
+    }
+
+
+   
 
     return (
     
     <div className="App">
         <Router>
-                <NavBar/>
-                
-          </Router>
-   
+          <NavBar brojLajkovanihSlika={brojLajkovanihSlika}/>     
+          
+          <Routes>
+            <Route path='/' element={<Galery products={products} lajkovati ={ lajkovati} dislajkovati = {dislajkovati}/>}/>
+          </Routes>
+   </Router>
     </div>
     
   );
