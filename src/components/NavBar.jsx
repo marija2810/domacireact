@@ -1,14 +1,14 @@
 import React from 'react'
 import Klik from './Klik';
-import {FaHeart} from 'react-icons/fa'
+import { FaHeart, FaPhotoVideo} from 'react-icons/fa'
 
 function Navbar({brojLajkovanihSlika}){ 
   const style = {backgroundColor: 'rgb(0,0,0)', color: 'rgb(255,255,255)'}
-    const boja = {color: 'rgb(255,255,255)'}
+    const boja = {color: 'rgb(210,113,113)'}
   return (
     <nav className="navbar navbar-expand-xl navbar-light " style={style}>
             <div className="container-fluid">
-                <p className="navbar-brand" style={boja}>Slikagram</p>
+                <p className="navbar-brand" style={boja}>Slikagram <FaPhotoVideo/></p>
                 <div className="collapse navbar-collapse show" id="navbarBasic">
                     <ul className="navbar-nav me-auto mb-2 mb-xl-0">
                         <Klik putanja="/" tekst="Galerija"/>
