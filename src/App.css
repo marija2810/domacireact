@@ -25,6 +25,11 @@ body {
     margin-right: auto;
 }
 
+.naslovStrana {
+  text-align: center;
+    margin-bottom: 30px;
+    color: black;
+}
 
 
 .poruka{ 

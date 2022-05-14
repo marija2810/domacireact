@@ -21,53 +21,53 @@ function App() {
     const [products,setProducts] =useState([
       {
         id: 1,
-      title: "Lion",
+      title: "Poljska",
       description:
-        "The lion is a large cat of the genus Panthera native to Africa and India. It has a muscular, deep-chested body, short, rounded head, round ears, and a hairy tuft at the end of its tail.",
+        "#nature #green #trees",
       amount: 0,
-      imgLink: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Wildlife_at_Maasai_Mara_%28Lion%29.jpg/1200px-Wildlife_at_Maasai_Mara_%28Lion%29.jpg',
+      imgLink: 'https://images.unsplash.com/photo-1566475955255-404134a79aeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
       
       },
       {
         id: 2,
-      title: "Lollypop",
+      title: "Francuska",
       description:
-        "Lollipops are available in a number of colors and flavors, particularly fruit flavors.",
+        "#paris #night #lights",
       amount: 0,
-      imgLink: 'https://media.wired.com/photos/593261cab8eb31692072f129/master/pass/85120553.jpg',
+      imgLink: 'https://images.unsplash.com/photo-1577369850389-32be613b186f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
       
       },
       {
         id: 3,
-      title: "Parrot",
+      title: "Kina",
       description:
-        "Parrots, also known as psittacines, are birds of the roughly 398 species in 92 genera comprising the order Psittaciformes, found mostly in tropical and subtropical regions. ",
+        "#beijing #china",
       amount: 0,
-      imgLink: 'https://t4.ftcdn.net/jpg/02/81/30/69/360_F_281306992_vYDMiuivOPqadFN4ITMYxCddMSsTd7JP.jpg',
+      imgLink: 'https://images.unsplash.com/photo-1578824381648-52f000bb5f9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80',
       },
       {
         id: 4,
-      title: "Lollypop",
+      title: "Amerika",
       description:
-        "Lollipops are available in a number of colors and flavors, particularly fruit flavors.",
+        "#newyork #usa",
       amount: 0,
-      imgLink: 'https://media.wired.com/photos/593261cab8eb31692072f129/master/pass/85120553.jpg',
+      imgLink: 'https://images.pexels.com/photos/313782/pexels-photo-313782.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       },
       {
         id: 5,
-      title: "Lollypop",
+      title: "Ujedinjeni Arapski Emirati",
       description:
-        "Lollipops are available in a number of colors and flavors, particularly fruit flavors.",
+        "#dubai #uae #burjkhalifa",
       amount: 0,
-      imgLink: 'https://media.wired.com/photos/593261cab8eb31692072f129/master/pass/85120553.jpg',
+      imgLink: 'https://images.wallpaperscraft.com/image/single/dubai_building_sky_urban_landscape_28363_1400x1050.jpg',
       },
       {
         id: 6,
-      title: "Lollypop",
+      title: "Holandija",
       description:
-        "Lollipops are available in a number of colors and flavors, particularly fruit flavors.",
+        "#amsterdam #netherlands",
       amount: 0,
-      imgLink: 'https://media.wired.com/photos/593261cab8eb31692072f129/master/pass/85120553.jpg',
+      imgLink: 'https://mylittlebigworld.fr/wp-content/uploads/2021/07/14D6182C-A67E-4964-8057-85F99A9DE0E7-scaled-e1626860932657.jpg',
       },
       
       
@@ -78,29 +78,30 @@ function App() {
     function lajkovati(id)  {
 
       products.forEach((slika) => {
-         if(slika.id ===id ){
+         if(slika.id ===id && slika.amount ===0){
           slika.amount++;
-          }
-          })
           setProducts(products);
           setPrikaz(products.filter((slika) => (slika.amount > 0)));
           setBrLajkova(brojLajkovanihSlika + 1);
+          }
+          })
+          
           
     };
     
     function dislajkovati(id) {
 
       products.forEach((slika) => {
-        if(slika.id === id ){
+        if(slika.id === id && slika.amount ===1){
           slika.amount--;
-        }
-      })
-      setProducts(products);
+          setProducts(products);
       setPrikaz(products.filter((slika) =>slika.amount > 0));
    
       if(brojLajkovanihSlika > 0) {
         setBrLajkova(brojLajkovanihSlika-1);
+        }
       }
+    })
    
     }
 
