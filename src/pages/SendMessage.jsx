@@ -5,7 +5,7 @@ function Kontakt({posaljiPoruku}){
         <div className='poruka'>
 
             <div class="mb-4">
-                <h2 class="h1-responsive font-weight-bold text-center my-4">Posaljite poruku Slikagramu</h2>
+                <h2 class="h1-responsive font-weight-bold text-center my-4">Pošaljite poruku Slikagramu!</h2>
                 <div class="row">
                     <div class="col-md-9 mb-md-0 mb-5">
                         <form id="contact-form" name="contact-form">
@@ -41,7 +41,7 @@ function Kontakt({posaljiPoruku}){
                         </form>
 
                         <div class="text-center text-md-left">
-                            <button class="btn btn-primary" onClick={posaljiPoruku}>Posalji poruku</button>
+                            <button class="btn btn-primary" onClick={posaljiPoruku}>Pošalji poruku</button>
                         </div>
                         <div class="status"></div>
                     </div>
@@ -49,7 +49,7 @@ function Kontakt({posaljiPoruku}){
                     <div class="col-md-3 text-center">
                         <ul class="list-unstyled mb-0">
                             <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                                <p>Novi Sad, Srbija</p>
+                                <p>Slikagram</p>
                             </li>
 
                             <li><i class="fas fa-phone mt-4 fa-2x"></i>
@@ -57,8 +57,9 @@ function Kontakt({posaljiPoruku}){
                             </li>
 
                             <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                                <p>slika@slikagram.com</p>
+                                <p>info@slikagram.com</p>
                             </li>
+                            
                         </ul>
                     </div>
 

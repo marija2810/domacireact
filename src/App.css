@@ -1,7 +1,6 @@
 .navBar {
   display: flex;
   flex-direction: row;
-  background-color: rgb(211, 211, 211);
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: rgb(175, 175, 175);
@@ -12,7 +11,7 @@
 }
 
 body {
-  background-image: url("../public/pozadina.jpg");
+  background-image: url("https://besthqwallpapers.com/Uploads/8-5-2019/90739/thumb2-instagram-stone-logo-black-stone-background-instagram-creative-grunge.jpg");
   background-size: 100vw 100vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -38,7 +37,7 @@ body {
   padding-right:40px;
   margin-right: auto;
   margin-left: auto;
-  background-color: rgba(123, 223, 250, 0.86);
+  background-color: rgba(135, 138, 138, 0.86);
   color: rgb(30, 31, 36);
 }
 
