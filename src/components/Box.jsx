@@ -16,9 +16,12 @@ function Box({slika, lajkovati, dislajkovati}) {
                     <img className='card-img-top' src={slika.imgLink} alt= 'Slika' />
                     <p className="card-text">Broj lajkova: {slika.amount}</p>
                     <div className='d-flex justify-content-start' >
-                    <LikeButton txtDugme='Lajkuj sliku' slika = {slika}  lajkFunkcija={lajkovati}/>
-                    <LikeButton txtDugme='Dislajkuj sliku' slika = {slika}  lajkFunkcija={dislajkovati}/>
-                  
+                    {slika.amount <= 0 ? <>
+                      <LikeButton txtDugme='Sviđa mi se' slika = {slika}  lajkFunkcija={lajkovati}/></>
+                            :
+                      <LikeButton txtDugme='Ne sviđa mi se' slika = {slika}  lajkFunkcija={dislajkovati}/>
+                       }
+                      
                 </div>
        </div>
           </div>

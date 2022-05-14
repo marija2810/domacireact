@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import Galery from './pages/Galery';
 import {BrowserRouter , Routes, Route} from "react-router-dom";
 import SendMessage from './pages/SendMessage';
+import LikedGalery from './pages/LikedGallery';
 
 
 function App() {
@@ -119,6 +120,7 @@ function App() {
           <Routes>
           <Route path='/' element={<Galery products={products} lajkovati={lajkovati} dislajkovati = {dislajkovati} />}/>
             <Route path='/forma' element={<SendMessage posaljiPoruku={posaljiPoruku}/>}/>
+            <Route path='/galerija' element={<LikedGalery prikaz={prikaz} dislajkovati = {dislajkovati}/>}/>
           </Routes>
    </BrowserRouter>
     </div>
