@@ -110,15 +110,27 @@ function App() {
       //    slanje email-a
           alert('Poslali ste poruku');
       }
+
+      const[ pretrazeni, setPretrazeni] = useState(products);
+
+      function pretraga(s) {
+        let noviNiz = [];
+        products.forEach((slika) => {
+          if(slika.title.toLowerCase().indexOf(s.target.value.toLowerCase())> -1){
+            noviNiz.push(slika);
+          }
+        })
+        setPretrazeni(noviNiz)
+;      }
     
 
     return (
     
     <div className="App">
         <BrowserRouter>
-          <NavBar brojLajkovanihSlika={brojLajkovanihSlika}/>     
+          <NavBar brojLajkovanihSlika={brojLajkovanihSlika} pretraga = {pretraga}/>     
           <Routes>
-          <Route path='/' element={<Galery products={products} lajkovati={lajkovati} dislajkovati = {dislajkovati} />}/>
+          <Route path='/' element={<Galery products={pretrazeni} lajkovati={lajkovati} dislajkovati = {dislajkovati} />}/>
             <Route path='/forma' element={<SendMessage posaljiPoruku={posaljiPoruku}/>}/>
             <Route path='/galerija' element={<LikedGalery prikaz={prikaz} dislajkovati = {dislajkovati}/>}/>
           </Routes>

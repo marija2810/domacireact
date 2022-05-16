@@ -2,7 +2,7 @@ import React from 'react'
 import Klik from './Klik';
 import { FaHeart, FaPhotoVideo} from 'react-icons/fa'
 
-function Navbar({brojLajkovanihSlika}){ 
+function Navbar({brojLajkovanihSlika, pretraga }){ 
   const style = {backgroundColor: 'rgb(0,0,0)', color: 'rgb(255,255,255)'}
     const boja = {color: 'rgb(210,113,113)'}
   return (
@@ -19,7 +19,10 @@ function Navbar({brojLajkovanihSlika}){
                         </li>
 
                     </ul>
-                  
+                    <form className="d-flex">
+                        <input className="form-control me-2" type="search" onInput={pretraga}
+                               placeholder="Pronadji sliku"/>
+                    </form>
                 </div>
             </div>
         </nav>
